@@ -1,0 +1,46 @@
+body {
+  background-color: #000;
+}
+
+a {
+  margin: 5px;
+}
+
+.App {
+  height: 80vh;
+  width: 80%;
+  text-align: center;
+  margin: 20px auto;
+  background-color: #eee;
+  padding: 50px;
+}
+
+.section {
+  display: flex;
+}
+
+.item {
+  border: 3px solid #FFF;
+  margin: 10px;
+  padding: 10px;
+}
+
+.counter {
+  background-color: #666;
+}
+.counter h3 {
+  margin: 10px;
+}
+.counter p {
+  font-weight: bold;
+}
+.counter button {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.is-active {
+  color: burlywood;
+}
+
+/*# sourceMappingURL=App.css.map */
