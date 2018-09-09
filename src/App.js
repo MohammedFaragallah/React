@@ -1,17 +1,10 @@
+import './Redux-store/Store';
 import React, { Component } from 'react';
 
 import './App.css';
 import './Components/counter/counter';
 
-// import CounterClass from './Components/counter/classCounter';
-// import VtoggleClass from './Components/Vtoggle/classVtoggle';
-// import Counter from './Components/counter/counter';
-// import Indecision from './Components/Indecision/Indecision';
-// import IndecisionMead from './Components/Indecision/Indecision - MEAD';
-// import Vtoggle from './Components/Vtoggle/Vtoggle';
-// import OptionModal from './Components/Modal';
-
-import Routes from './Routers/AppRouter';
+import Routes from './Routes/AppRouter';
 
 //TODO add random choice selection
 class App extends Component {
@@ -98,5 +91,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
