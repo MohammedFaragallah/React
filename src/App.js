@@ -1,92 +1,29 @@
-import './Redux-store/Store';
 import React, { Component } from 'react';
-
+import { Provider } from 'react-redux';
 import './App.css';
 import './Components/counter/counter';
-
 import Routes from './Routes/AppRouter';
+import { Cases, store } from './cases';
+
+store.subscribe(() => {
+  const state = store.getState();
+  console.log(state);
+});
+
+Cases();
 
 //TODO add random choice selection
 class App extends Component {
-  state = {
-    Counter: {
-      count: 0,
-    },
-    Vtoggle: {
-      on: false,
-    },
-  };
-  componentDidMount() {
-    let data = JSON.parse(localStorage.getItem('state'));
-    if (data) {
-      this.setState(pre => {
-        return {
-          Counter: {
-            count: data.Counter.count || 0,
-          },
-          Vtoggle: {
-            on: data.Vtoggle.on,
-          },
-        };
-      });
-    }
-  }
-  componentDidUpdate() {
-    let json = JSON.stringify(this.state);
-    localStorage.setItem('state', json);
-  }
-
-  addOne = () => {
-    this.setState(pre => {
-      return {
-        Counter: { count: pre.Counter.count + 1 },
-      };
-    });
-  };
-
-  minusOne = () => {
-    this.setState(pre => {
-      return {
-        Counter: { count: pre.Counter.count - 1 },
-      };
-    });
-  };
-
-  reset = () => {
-    this.setState(pre => {
-      return {
-        Counter: { count: 0 },
-      };
-    });
-  };
-
-  vtoggle = () => {
-    this.setState(pre => {
-      return { Vtoggle: { on: !pre.Vtoggle.on } };
-    });
-  };
-
   render() {
+    const jsx = (
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    );
     return (
       <div className="App">
         <h1>Hello from app.js</h1>
-        <Routes />
-        {/* <div className="section">
-          <Counter
-            count={`Count : ${this.state.Counter.count}`}
-            addOne={this.addOne}
-            minusOne={this.minusOne}
-            reset={this.reset}
-          />
-          <CounterClass />
-        </div>
-        <div className="section">
-          <Vtoggle click={this.vtoggle} on={this.state.Vtoggle.on} />
-          <VtoggleClass />
-        </div>
-        <Indecision />
-        <IndecisionMead />
-        <OptionModal /> */}
+        {jsx}
       </div>
     );
   }

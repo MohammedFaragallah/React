@@ -15,6 +15,9 @@ const Header = () => (
     <NavLink to="/portfolio" activeClassName="is-active">
       Portfolio
     </NavLink>
+    <NavLink to="/hoc" activeClassName="is-active">
+      HOC
+    </NavLink>
   </header>
 );
 
