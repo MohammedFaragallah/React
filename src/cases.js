@@ -1,32 +1,40 @@
 import { addExpense } from './redux/actions/expenses';
 import storeConfigurations from './redux/Redux-store/store';
-const store = storeConfigurations();
+import moment from 'moment';
 
+const store = storeConfigurations();
 const Cases = () => {
   store.dispatch(
     addExpense({
-      description: 'rent',
-      note: 'noterenttest',
-      amount: 1,
-      createdAt: 5000,
+      id: '1',
+      description: 'Gum',
+      note: '',
+      amount: 195,
+      createdAt: 0,
     })
   );
 
   store.dispatch(
     addExpense({
-      description: 'asdasd',
-      note: 'noteasdasdtest',
-      amount: 55,
-      createdAt: 21000,
+      id: '2',
+      description: 'Rent',
+      note: '',
+      amount: 109500,
+      createdAt: moment(0)
+        .subtract(4, 'days')
+        .valueOf(),
     })
   );
 
   store.dispatch(
     addExpense({
-      description: 'asdasd',
-      note: 'noteasdasdtest',
-      amount: 99,
-      createdAt: -12000,
+      id: '3',
+      description: 'Credit Card',
+      note: '',
+      amount: 4500,
+      createdAt: moment(0)
+        .add(4, 'days')
+        .valueOf(),
     })
   );
 
