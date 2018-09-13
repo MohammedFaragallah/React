@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import './App.css';
-import './Components/counter/counter';
 import Routes from './Routes/AppRouter';
 import { Cases, store } from './cases';
+import './App.css';
+import 'react-dates/lib/css/_datepicker.css';
 
 store.subscribe(() => {
   const state = store.getState();
   console.log(state);
 });
 
-Cases();
+// Cases();
 
 //TODO add random choice selection
 class App extends Component {

@@ -1,5 +1,5 @@
 import expensesReducer from '../../redux/reducers/expensesreducer';
-import expenses from '../fixtures/expenses';
+import { expenses } from '../fixtures/expenses';
 
 test('should set default state', () => {
   const state = expensesReducer(undefined, { type: '@@INIT' });
@@ -7,18 +7,26 @@ test('should set default state', () => {
 });
 
 test('should remove expense by id', () => {
+  console.log(expenses[1].id);
   const action = {
     type: 'REMOVE_EXPENSE',
-    id: expenses[1].id,
+    expense: {
+      id: expenses[1].id,
+    },
   };
+  console.log(expenses[1].id);
   const state = expensesReducer(expenses, action);
+  console.log(expenses[1].id);
+  console.log(action);
   expect(state).toEqual([expenses[0], expenses[2]]);
 });
 
 test('should not remove expenses if id not found', () => {
   const action = {
     type: 'REMOVE_EXPENSE',
-    id: '-1',
+    expense: {
+      id: '-1',
+    },
   };
   const state = expensesReducer(expenses, action);
   expect(state).toEqual(expenses);
