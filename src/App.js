@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import Routes from './Routes/AppRouter';
-import { Cases, store } from './cases';
+import { store } from './cases';
 import './App.css';
 import 'react-dates/lib/css/_datepicker.css';
 
