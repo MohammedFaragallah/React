@@ -5,6 +5,8 @@ import { store } from './cases';
 import './App.css';
 import 'react-dates/lib/css/_datepicker.css';
 
+import './firebase/fierbase';
+
 store.subscribe(() => {
   const state = store.getState();
   console.log(state);
