@@ -6,10 +6,3 @@ cache:
     - node_modules
 script:
   - npm test
-deploy:
-  provider: heroku
-  api_key:
-    secure: L8a4kpp4kBCBahVHEIR5KsbWcELKHsDsj0tkCkHlOC2gMahWLaKu2b1ot69EUDOp7J7M2+QfEQdrFNRbZF+N58EHSS/Rq5EFRZ6DDR4C9gmQYofBv5Qd+wNdLZ1+D56yhG18RcwmzarvFRQ6PwKiWqd13Nx4jAeradmkYv5y5s4qFt7fcuUpHqDveYPSYHxq+U8zzqPQvPwI880wmimBIvSNdrWzjMBhtsWNQM/GtCcanBtvFdyFcxFDjZ78RtZlULkvjAznVBsFdaaNZRo7FxdMfGBfXGMESrMH4F9jL787oh8576k2IM3nwBEsOjtRo+5ZwVW8PDRwxZkcUo+/5Ue5CsJwWbf0x1TBjDzJMVg/VrEsBAkyOVPpKUrJBbqqoGYF2FAyaCT6AQnxDcN3RKPhWx7sNCq1uGLnh4lPuS4+POxVCrfmuOU8ccs3aTj/exxKPjdthxt1yVqueUNGLYKdu0KzrCU7W4drUdJ1p0LZNTk5wl5ZO0PvNSQHKifvS07ykf3AuXUygLhqQOhXhBScsWavDjOObub7Lrt5ah25jc0qCBe8bjkdgazUAvgR0HntMBm/4O67avQc6M8gWB/qJslg4molbupoSmIBmB5hAOHYKJVffL3F2dADXwxyfrygdUD5NIDcyFPh9YbLI6+4dNNFG7wHIqRP91ppMs0=
-  app: React
-  on:
-    repo: MohammedFaragallah/React
