@@ -7,10 +7,3 @@ cache:
 script:
   - echo "Running tests against $(node -v)..."
   - npm test --coverage
-deploy:
-  provider: heroku
-  api_key:
-    secure: KONOfK02ockusC7sX3HgcoCu5Pw7jV54bF1VojenXk2MqSRePnneYpWQg8te8+vSmv0hhp1jO8SZ88qHq+rXI2vRdKKRLFQYEw2T2uMBDfk+kayAKu6jtGoiVSqNZZWUn142yKBPfwq7Y1qWOYLwUuNRhpkQb/ojrAImG410dhuWbROPPgQyx3X/ioGHsyKm+farx9+d0Cmsm0mmv1jB2CCXaFjgurXuvbPYZgw18CIWIXGx/akf1zIJG/k2es9NMg2Lw3+c7Q/7jEx5UGrW2mN8P6Gv/VqR4xAFub5/9ls93fHij9OKvDJ4rATONKvfg10rLNseT81Y1hBZWGgN3/Ht/Jhk1DpX/xWoeWgGVpv8+HJRIL2zaSlJaPiklg4174ajGKl7m4sWJ9cgoszqQldy08tVD0nA90YIVt6KwjfFmDV8zLDFpvJUBNELLfkGA1E7GEgK9Rx/QZP7zUpX9JXN/A6D5Q1Fo3Y1ic+juXupKGpBnasXp1OgVYXFqsHZqbStb7bIeam5D9ra6lS6hOB9yLY8u/k+GoiBjKvWb4D9HHHCgmZGS9jsBH/0u/RgBMxS9JlzMGkiOpR6v6LI6+02bKIVaUIQDobDyOWmGBgvBwQnl/BcyVWKy0R6Bqks0SeUSSCRllqwekwhQjXSDj0c1y9GxOF4POrQ0zegVx8=
-  app: React
-  on:
-    repo: MohammedFaragallah/React
