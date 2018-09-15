@@ -6,4 +6,4 @@ cache:
     - node_modules
 script:
   - echo "Running tests against $(node -v)..."
-  - npm test
+  - npm test --coverage

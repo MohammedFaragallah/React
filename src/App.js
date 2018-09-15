@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import Routes from './Routes/AppRouter';
-import { store } from './cases';
 import './App.css';
 import 'react-dates/lib/css/_datepicker.css';
+import { startSetExpenses } from './redux/actions/expenses';
+import storeConfigurations from './redux/Redux-store/store';
 
-import './firebase/fierbase';
+const store = storeConfigurations();
+
+store.dispatch(startSetExpenses()).then(() => {});
 
 store.subscribe(() => {
   const state = store.getState();
   console.log(state);
 });
-
-// Cases();
 
 //TODO add random choice selection
 class App extends Component {

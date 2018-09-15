@@ -9,10 +9,6 @@ const config = {
   messagingSenderId: '693849847226',
 };
 firebase.initializeApp(config);
+const database = firebase.database();
 
-firebase
-  .database()
-  .ref()
-  .set({
-    name: 'Mohammed Faragallah',
-  });
+export { firebase, database as default };
