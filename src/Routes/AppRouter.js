@@ -28,6 +28,7 @@ import Contact from '../Components/portfolio/contact';
 
 import { AdminInfo, AdminAuth } from '../Components/HOC/hoc';
 
+import { Persons } from '../Components/Person/Persons';
 const Routes = () => (
   <BrowserRouter>
     <div>
@@ -38,6 +39,7 @@ const Routes = () => (
         <Route path="/expenses" component={ExpensesHeader} />
         <Route path="/portfolio" component={PortfolioHeader} />
         <Route path="/hoc" component={HOCHeader} />
+        <Route path="/persons" component={Persons} />
 
         <Route component={NotFoundPage} />
       </Switch>

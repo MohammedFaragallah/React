@@ -18,6 +18,9 @@ const Header = () => (
     <NavLink to="/hoc" activeClassName="is-active">
       HOC
     </NavLink>
+    <NavLink to="/persons" activeClassName="is-active">
+      Persons
+    </NavLink>
   </header>
 );
 
