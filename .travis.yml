@@ -10,4 +10,3 @@ script:
   - echo "Running tests against $(node -v)..."
   - npm test -- --coverage
   - codecov
-  - coveralls
