@@ -51,5 +51,12 @@ exports[`should render header correctly 1`] = `
   >
     BurgerBuilder
   </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    to="/post"
+  >
+    Post
+  </NavLink>
 </header>
 `;

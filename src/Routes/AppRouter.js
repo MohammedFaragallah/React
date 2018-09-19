@@ -30,6 +30,8 @@ import Contact from '../Components/Portfolio/Contact';
 import Container from '../Components/BurgerBuilder/containers/BurgerBuilder/BurgerBuilder';
 // HOC
 import { AdminInfo, AdminAuth } from '../Components/HOC/HOC';
+// POST
+import Post from '../Components/Post/containers/Blog/Blog';
 // Persons componentes
 import { Persons } from '../Components/Person/Persons';
 
@@ -45,6 +47,7 @@ const Routes = () => (
         <Route path="/hoc" component={HOCHeader} />
         <Route path="/persons" component={Persons} />
         <Route path="/burger" component={BurgerHeader} />
+        <Route path="/post" component={Post} />
 
         <Route component={NotFoundPage} />
       </Switch>

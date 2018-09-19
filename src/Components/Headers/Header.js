@@ -25,6 +25,9 @@ const Header = () => (
     <NavLink to="/burger" activeClassName="is-active">
       BurgerBuilder
     </NavLink>
+    <NavLink to="/post" activeClassName="is-active">
+      Post
+    </NavLink>
   </header>
 );
 
