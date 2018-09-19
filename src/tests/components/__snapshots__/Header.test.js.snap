@@ -44,5 +44,12 @@ exports[`should render header correctly 1`] = `
   >
     Persons
   </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    to="/burger"
+  >
+    BurgerBuilder
+  </NavLink>
 </header>
 `;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 const Header = () => (
   <header>
     <NavLink to="/" activeClassName="is-active">
@@ -20,6 +21,9 @@ const Header = () => (
     </NavLink>
     <NavLink to="/persons" activeClassName="is-active">
       Persons
+    </NavLink>
+    <NavLink to="/burger" activeClassName="is-active">
+      BurgerBuilder
     </NavLink>
   </header>
 );

@@ -15,18 +15,14 @@ store.subscribe(() => {
   console.log(state);
 });
 
-//TODO add random choice selection
 class App extends Component {
   render() {
-    const jsx = (
-      <Provider store={store}>
-        <Routes />
-      </Provider>
-    );
     return (
       <div className="App">
         <h1>Hello from app.js</h1>
-        {jsx}
+        <Provider store={store}>
+          <Routes />
+        </Provider>
       </div>
     );
   }

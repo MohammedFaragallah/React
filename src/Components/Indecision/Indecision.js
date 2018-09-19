@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//TODO add random choice selection
 
 class Indecision extends Component {
   state = {

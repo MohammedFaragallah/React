@@ -8,13 +8,14 @@ import Landing from '../Components/Utils/Landing';
 import ExpensesHeader from '../Components/Headers/ExpensesHeader';
 import AioHeader from '../Components/Headers/AioHeader';
 import PortfolioHeader from '../Components/Headers/PortfolioHeader';
-import HOCHeader from '../Components/Headers/HOCHeader';
+// import HOCHeader from '../Components/Headers/HOCHeader';
+import BurgerHeader from '../Components/Headers/BurgerHeader';
 // AIO componentes
-import Counter from '../Components/counter/counter';
-import ClassCounter from '../Components/counter/classCounter';
+import Counter from '../Components/Counter/Counter';
+import ClassCounter from '../Components/Counter/ClassCounter';
 import IndecisionMEAD from '../Components/Indecision/Indecision - MEAD';
 import Indecision from '../Components/Indecision/Indecision';
-import ClassVtoggle from '../Components/Vtoggle/classVtoggle';
+import ClassVtoggle from '../Components/Vtoggle/ClassVtoggle';
 import Vtoggle from '../Components/Vtoggle/Vtoggle';
 // Expenses componentes
 import ExpenseDashboardPage from '../Components/Expenses/ExpenseDashboardPage';
@@ -22,13 +23,16 @@ import AddExpensePage from '../Components/Expenses/AddExpensePage';
 import EditExpensePage from '../Components/Expenses/EditExpensePage';
 import HelpPage from '../Components/Expenses/HelpPage';
 // Portfolio componentes
-import Portfolio from '../Components/portfolio/Portfolio';
-import PortfolioID from '../Components/portfolio/PortfolioID';
-import Contact from '../Components/portfolio/contact';
-
-import { AdminInfo, AdminAuth } from '../Components/HOC/hoc';
-
+import Portfolio from '../Components/Portfolio/Portfolio';
+import PortfolioID from '../Components/Portfolio/PortfolioID';
+import Contact from '../Components/Portfolio/Contact';
+// BurgerBuilder
+import Container from '../Components/BurgerBuilder/containers/BurgerBuilder/BurgerBuilder';
+// HOC
+// import { AdminInfo, AdminAuth } from '../Components/HOC/HOC';
+// Persons componentes
 import { Persons } from '../Components/Person/Persons';
+
 const Routes = () => (
   <BrowserRouter>
     <div>
@@ -38,8 +42,9 @@ const Routes = () => (
         <Route path="/aio" component={AioHeader} />
         <Route path="/expenses" component={ExpensesHeader} />
         <Route path="/portfolio" component={PortfolioHeader} />
-        <Route path="/hoc" component={HOCHeader} />
+        {/* <Route path="/hoc" component={HOCHeader} /> */}
         <Route path="/persons" component={Persons} />
+        <Route path="/burger" component={BurgerHeader} />
 
         <Route component={NotFoundPage} />
       </Switch>
@@ -61,14 +66,16 @@ const Routes = () => (
       <Route path="/portfolio/porftolio/:id" component={PortfolioID} />
       <Route path="/portfolio/contact" component={Contact} />
 
-      <Route
+      {/* <Route
         path="/hoc/isAdmin"
         component={props => <AdminInfo {...props} isAdmin={true} />}
       />
       <Route
         path="/hoc/isAuth"
         component={props => <AdminAuth {...props} isAuthinticated={false} />}
-      />
+      /> */}
+
+      <Route path="/burger/builder" component={Container} />
     </div>
   </BrowserRouter>
 );
