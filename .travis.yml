@@ -7,7 +7,7 @@ cache:
 install:
   - npm install -g codecov
 script:
-  - npm run deploy
   - echo "Running tests against $(node -v)..."
   - npm test -- --coverage
   - codecov
+  - npm run deploy
