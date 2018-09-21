@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Layout from '../../components/Layout/Layout';
 import Auxiliary from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -84,35 +85,20 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    this.setState({ loading: true });
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'Mohammed Faragallah',
-        address: {
-          street: 'street',
-          zipcode: 21555,
-          country: 'Egypt',
-        },
-        email: 'test@test.com',
-      },
-      deleveryMethod: 'fast',
-    };
-    axios
-      .post('/orders.json', order)
-      .then(res => {
-        this.setState({
-          loading: false,
-          purchasing: false,
-        });
-      })
-      .catch(error => {
-        this.setState({
-          loading: false,
-          purchasing: false,
-        });
-      });
+    const query = [];
+    for (let i in this.state.ingredients) {
+      query.push(
+        `${encodeURIComponent(i)}=${encodeURIComponent(
+          this.state.ingredients[i]
+        )}`
+      );
+    }
+    query.push(`price=${this.state.totalPrice}`);
+    const queryString = query.join('&');
+    this.props.history.push({
+      pathname: '/burger/checkout',
+      search: `?${queryString}`,
+    });
   };
 
   render() {
@@ -155,17 +141,18 @@ class BurgerBuilder extends Component {
     if (this.state.loading) {
       orderSummary = <Spinner />;
     }
-    // {salad: true, meat: false, ...}
     return (
-      <Auxiliary>
-        <Modal
-          show={this.state.purchasing}
-          modalClosed={this.purchaseCancelHandler}
-        >
-          {orderSummary}
-        </Modal>
-        {burger}
-      </Auxiliary>
+      <Layout>
+        <Auxiliary>
+          <Modal
+            show={this.state.purchasing}
+            modalClosed={this.purchaseCancelHandler}
+          >
+            {orderSummary}
+          </Modal>
+          {burger}
+        </Auxiliary>
+      </Layout>
     );
   }
 }

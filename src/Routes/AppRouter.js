@@ -28,6 +28,9 @@ import PortfolioID from '../Components/Portfolio/PortfolioID';
 import Contact from '../Components/Portfolio/Contact';
 // BurgerBuilder
 import Container from '../Components/BurgerBuilder/containers/BurgerBuilder/BurgerBuilder';
+import Checkout from '../Components/BurgerBuilder/containers/Checkout/Checkout';
+// import ContactData from '../Components/BurgerBuilder/containers/Checkout/ContactData/ContactData';
+import Orders from '../Components/BurgerBuilder/containers/Orders/Orders';
 // HOC
 import { AdminInfo, AdminAuth } from '../Components/HOC/HOC';
 // POST
@@ -36,7 +39,7 @@ import Post from '../Components/Post/containers/Blog/Blog';
 import { Persons } from '../Components/Person/Persons';
 
 const Routes = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/React">
     <div>
       <Header />
       <Switch>
@@ -75,10 +78,13 @@ const Routes = () => (
       />
       <Route
         path="/hoc/isAuth"
-        component={props => <AdminAuth {...props} isAuthinticated={false} />}
+        component={props => {
+          return <AdminAuth {...props} isAuthinticated={false} />;
+        }}
       />
-
       <Route path="/burger/builder" component={Container} />
+      <Route path="/burger/checkout" component={Checkout} />
+      <Route path="/burger/orders" component={Orders} />
     </div>
   </BrowserRouter>
 );
