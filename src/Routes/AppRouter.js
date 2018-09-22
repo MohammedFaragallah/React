@@ -37,7 +37,7 @@ import { AdminInfo, AdminAuth } from '../Components/HOC/HOC';
 import Post from '../Components/Post/containers/Blog/Blog';
 // Persons componentes
 import { Persons } from '../Components/Person/Persons';
-
+import AdvancedCounter from '../Components/AdvancedCounter/containers/Counter/Counter';
 const Routes = () => (
   <BrowserRouter basename="/React">
     <div>
@@ -85,6 +85,8 @@ const Routes = () => (
       <Route path="/burger/builder" component={Container} />
       <Route path="/burger/checkout" component={Checkout} />
       <Route path="/burger/orders" component={Orders} />
+
+      <Route path="/advancedCounter" component={AdvancedCounter} />
     </div>
   </BrowserRouter>
 );

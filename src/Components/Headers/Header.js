@@ -28,6 +28,9 @@ const Header = () => (
     <NavLink to="/post" activeClassName="is-active">
       Post
     </NavLink>
+    <NavLink to="/advancedCounter" activeClassName="is-active">
+      Advanced Counter
+    </NavLink>
   </header>
 );
 

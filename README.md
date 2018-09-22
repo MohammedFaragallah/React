@@ -11,3 +11,4 @@
 [![codecov](https://codecov.io/gh/MohammedFaragallah/React/branch/master/graph/badge.svg)](https://codecov.io/gh/MohammedFaragallah/React)
 [![](https://tokei.rs/b1/github/MohammedFaragallah/React?category=lines)](https://github.com/Aaronepower/tokei).
 [![HitCount](http://hits.dwyl.io/mohammedfaragallah/React.svg)](http://hits.dwyl.io/mohammedfaragallah/React)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2232/badge)](https://bestpractices.coreinfrastructure.org/projects/2232)

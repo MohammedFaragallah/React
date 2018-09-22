@@ -3,3 +3,4 @@
 - [] add total expenses feature.
 - [] BACK TO CHAPTER 7 (React 16 – The Complete Guide).
 - [] Try informed lib.
+- [] Find a way to add axios to webpack externals without ejecting create-react-app.
