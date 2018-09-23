@@ -1,10 +1,10 @@
 import * as actionTypes from '../actions/advCounter';
 
-const initialState = {
+const defaultState = {
   counter: 0,
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.INCREMENT:
       const newState = Object.assign({}, state);

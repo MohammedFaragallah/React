@@ -29,7 +29,6 @@ import Contact from '../Components/Portfolio/Contact';
 // BurgerBuilder
 import Container from '../Components/BurgerBuilder/containers/BurgerBuilder/BurgerBuilder';
 import Checkout from '../Components/BurgerBuilder/containers/Checkout/Checkout';
-// import ContactData from '../Components/BurgerBuilder/containers/Checkout/ContactData/ContactData';
 import Orders from '../Components/BurgerBuilder/containers/Orders/Orders';
 // HOC
 import { AdminInfo, AdminAuth } from '../Components/HOC/HOC';
@@ -38,10 +37,13 @@ import Post from '../Components/Post/containers/Blog/Blog';
 // Persons componentes
 import { Persons } from '../Components/Person/Persons';
 import AdvancedCounter from '../Components/AdvancedCounter/containers/Counter/Counter';
+import Layout from '../Components/BurgerBuilder/components/Layout/Layout';
 const Routes = () => (
   <BrowserRouter basename="/React">
     <div>
       <Header />
+      <Layout />
+
       <Switch>
         <Route path="/" component={Landing} exact={true} />
         <Route path="/aio" component={AioHeader} />
@@ -51,6 +53,7 @@ const Routes = () => (
         <Route path="/persons" component={Persons} />
         <Route path="/burger" component={BurgerHeader} />
         <Route path="/post" component={Post} />
+        <Route path="/advancedCounter" component={AdvancedCounter} />
 
         <Route component={NotFoundPage} />
       </Switch>
@@ -85,8 +88,6 @@ const Routes = () => (
       <Route path="/burger/builder" component={Container} />
       <Route path="/burger/checkout" component={Checkout} />
       <Route path="/burger/orders" component={Orders} />
-
-      <Route path="/advancedCounter" component={AdvancedCounter} />
     </div>
   </BrowserRouter>
 );

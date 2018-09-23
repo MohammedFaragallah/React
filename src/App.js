@@ -10,10 +10,10 @@ const store = storeConfigurations();
 
 store.dispatch(startSetExpenses()).then(() => {});
 
-store.subscribe(() => {
-  const state = store.getState();
-  console.log(state);
-});
+// store.subscribe(() => {
+//   const state = store.getState();
+//   console.log(state);
+// });
 
 class App extends Component {
   render() {

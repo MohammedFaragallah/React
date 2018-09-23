@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Order from '../Checkout/Order';
-import Layout from '../../components/Layout/Layout';
 import axios from '../../axios-orders';
 import withErrorHandler from '../../withErrorHandler';
 class Orders extends Component {
@@ -29,15 +28,13 @@ class Orders extends Component {
   render() {
     return (
       <div>
-        <Layout>
-          {this.state.orders.map(order => (
-            <Order
-              key={order.id}
-              ingredients={order.ingredients}
-              price={+order.price}
-            />
-          ))}
-        </Layout>
+        {this.state.orders.map(order => (
+          <Order
+            key={order.id}
+            ingredients={order.ingredients}
+            price={+order.price}
+          />
+        ))}
       </div>
     );
   }

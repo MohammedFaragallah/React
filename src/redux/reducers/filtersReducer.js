@@ -1,13 +1,13 @@
 import moment from 'moment';
 
-const filtersReducerDefaultState = {
+const defaultState = {
   text: '',
   sortBY: 'date',
   startDate: moment().startOf('month'),
   endDate: moment().endOf('month'),
 };
 
-export default (state = filtersReducerDefaultState, action) => {
+export default (state = defaultState, action) => {
   switch (action.type) {
     case 'SET_TEXT':
       return {

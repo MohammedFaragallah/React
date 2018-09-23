@@ -1,10 +1,10 @@
 import * as actionTypes from '../actions/advCounter';
 
-const initialState = {
+const defaultState = {
   results: [],
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.STORE_RESULT:
       return {
