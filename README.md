@@ -12,3 +12,4 @@
 [![](https://tokei.rs/b1/github/MohammedFaragallah/React?category=lines)](https://github.com/Aaronepower/tokei).
 [![HitCount](http://hits.dwyl.io/mohammedfaragallah/React.svg)](http://hits.dwyl.io/mohammedfaragallah/React)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2232/badge)](https://bestpractices.coreinfrastructure.org/projects/2232)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMohammedFaragallah%2FReact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMohammedFaragallah%2FReact?ref=badge_shield)

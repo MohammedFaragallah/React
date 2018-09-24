@@ -1,30 +1,27 @@
-import * as actionTypes from '../actions/advCounter';
-
+import { INCREMENT, DECREMENT, ADD, SUBTRACT } from '../actions/advCounter';
+import { updateObject } from '../util';
 const defaultState = {
   counter: 0,
 };
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case actionTypes.INCREMENT:
-      const newState = Object.assign({}, state);
-      newState.counter = state.counter + 1;
-      return newState;
-    case actionTypes.DECREMENT:
-      return {
-        ...state,
+    case INCREMENT:
+      return updateObject(state, {
+        counter: state.counter + 1,
+      });
+    case DECREMENT:
+      return updateObject(state, {
         counter: state.counter - 1,
-      };
-    case actionTypes.ADD:
-      return {
-        ...state,
+      });
+    case ADD:
+      return updateObject(state, {
         counter: state.counter + action.val,
-      };
-    case actionTypes.SUBTRACT:
-      return {
-        ...state,
+      });
+    case SUBTRACT:
+      return updateObject(state, {
         counter: state.counter - action.val,
-      };
+      });
     default:
       return state;
   }

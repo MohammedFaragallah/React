@@ -1,4 +1,5 @@
-import * as actionTypes from '../actions/advCounter';
+import { STORE_RESULT, DELETE_RESULT } from '../actions/advCounter';
+import { updateObject } from '../util';
 
 const defaultState = {
   results: [],
@@ -6,22 +7,18 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case actionTypes.STORE_RESULT:
-      return {
-        ...state,
+    case STORE_RESULT:
+      return updateObject(state, {
         results: state.results.concat({
           id: new Date(),
           value: action.result,
         }),
-      };
-    case actionTypes.DELETE_RESULT:
+      });
+    case DELETE_RESULT:
       const updatedArray = state.results.filter(
         result => result.id !== action.resultElId
       );
-      return {
-        ...state,
-        results: updatedArray,
-      };
+      return updateObject(state, { results: updatedArray });
     default:
       return state;
   }
