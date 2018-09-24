@@ -9,6 +9,10 @@
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/MohammedFaragallah/React.svg)](http://isitmaintained.com/project/MohammedFaragallah/React 'Percentage of issues still open')
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![codecov](https://codecov.io/gh/MohammedFaragallah/React/branch/master/graph/badge.svg)](https://codecov.io/gh/MohammedFaragallah/React)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMohammedFaragallah%2FReact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMohammedFaragallah%2FReact?ref=badge_shield)
 [![](https://tokei.rs/b1/github/MohammedFaragallah/React?category=lines)](https://github.com/Aaronepower/tokei).
 [![HitCount](http://hits.dwyl.io/mohammedfaragallah/React.svg)](http://hits.dwyl.io/mohammedfaragallah/React)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2232/badge)](https://bestpractices.coreinfrastructure.org/projects/2232)
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMohammedFaragallah%2FReact.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMohammedFaragallah%2FReact?ref=badge_large)
