@@ -11,3 +11,7 @@ script:
   - npm test -- --coverage
   - codecov
   # - npm run deploy
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cd <SOURCE_DIR> && fossa test

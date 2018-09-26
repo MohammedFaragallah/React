@@ -1,7 +1,12 @@
 import database from '../../firebase/fierbase';
-
+import {
+  ADD_EXPENSE,
+  EDIT_EXPENSE,
+  REMOVE_EXPENSE,
+  SET_EXPENSES,
+} from './actionTypes';
 const addExpense = expense => ({
-  type: 'ADD_EXPENSE',
+  type: ADD_EXPENSE,
   expense,
 });
 
@@ -24,7 +29,7 @@ const startAddExpense = (expenseData = {}) => {
 };
 
 const editExpense = (id, updates) => ({
-  type: 'EDIT_EXPENSE',
+  type: EDIT_EXPENSE,
   id,
   updates,
 });
@@ -41,7 +46,7 @@ const startEditExpense = (id, updates) => {
 };
 
 const removeExpense = ({ id } = {}) => ({
-  type: 'REMOVE_EXPENSE',
+  type: REMOVE_EXPENSE,
   expense: {
     id,
   },
@@ -59,7 +64,7 @@ const startRemoveExpense = ({ id } = {}) => {
 };
 
 const setExpenses = expenses => ({
-  type: 'SET_EXPENSES',
+  type: SET_EXPENSES,
   expenses,
 });
 

@@ -1,11 +1,11 @@
-import { STORE_RESULT, DELETE_RESULT } from '../actions/advCounter';
+import { STORE_RESULT, DELETE_RESULT } from '../actions/actionTypes';
 import { updateObject } from '../util';
 
 const defaultState = {
   results: [],
 };
 
-const reducer = (state = defaultState, action) => {
+export default (state = defaultState, action) => {
   switch (action.type) {
     case STORE_RESULT:
       return updateObject(state, {
@@ -23,5 +23,3 @@ const reducer = (state = defaultState, action) => {
       return state;
   }
 };
-
-export default reducer;

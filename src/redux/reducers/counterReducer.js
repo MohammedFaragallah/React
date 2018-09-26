@@ -1,10 +1,10 @@
-import { INCREMENT, DECREMENT, ADD, SUBTRACT } from '../actions/advCounter';
+import { INCREMENT, DECREMENT, ADD, SUBTRACT } from '../actions/actionTypes';
 import { updateObject } from '../util';
 const defaultState = {
   counter: 0,
 };
 
-const reducer = (state = defaultState, action) => {
+export default (state = defaultState, action) => {
   switch (action.type) {
     case INCREMENT:
       return updateObject(state, {
@@ -26,5 +26,3 @@ const reducer = (state = defaultState, action) => {
       return state;
   }
 };
-
-export default reducer;

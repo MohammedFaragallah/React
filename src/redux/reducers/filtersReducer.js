@@ -1,3 +1,10 @@
+import {
+  SET_TEXT,
+  SORT_BY_AMOUNT,
+  SORT_BY_DATE,
+  SET_START_DATE,
+  SET_END_DATE,
+} from '../actions/actionTypes';
 import moment from 'moment';
 
 const defaultState = {
@@ -9,27 +16,27 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'SET_TEXT':
+    case SET_TEXT:
       return {
         ...state,
         text: action.text,
       };
-    case 'SORT_BY_AMOUNT':
+    case SORT_BY_AMOUNT:
       return {
         ...state,
         sortBy: 'amount',
       };
-    case 'SORT_BY_DATE':
+    case SORT_BY_DATE:
       return {
         ...state,
         sortBy: 'date',
       };
-    case 'SET_START_DATE':
+    case SET_START_DATE:
       return {
         ...state,
         startDate: action.startDate,
       };
-    case 'SET_END_DATE':
+    case SET_END_DATE:
       return {
         ...state,
         endDate: action.endDate,
