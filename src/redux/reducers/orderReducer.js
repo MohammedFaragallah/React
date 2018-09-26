@@ -15,20 +15,18 @@ const defaultState = {
   purchased: false,
 };
 
-const purchaseInit = state => {
-  return updateObject(state, {
+const purchaseInit = state =>
+  updateObject(state, {
     purchased: false,
   });
-};
 
-const purchaseBurgerStart = state => {
-  return updateObject(state, {
+const purchaseBurgerStart = state =>
+  updateObject(state, {
     loading: true,
   });
-};
 
-const purchaseBurgerSuccess = (state, action) => {
-  return updateObject(state, {
+const purchaseBurgerSuccess = (state, action) =>
+  updateObject(state, {
     loading: false,
     purchased: true,
     orders: state.orders.concat(
@@ -37,32 +35,27 @@ const purchaseBurgerSuccess = (state, action) => {
       })
     ),
   });
-};
 
-const purchaseBurgerFailed = state => {
-  return updateObject(state, {
+const purchaseBurgerFailed = state =>
+  updateObject(state, {
     loading: false,
   });
-};
 
-const ordersFetchStart = state => {
-  return updateObject(state, {
+const ordersFetchStart = state =>
+  updateObject(state, {
     loading: true,
   });
-};
 
-const ordersFetchSuccess = (state, action) => {
-  return updateObject(state, {
+const ordersFetchSuccess = (state, action) =>
+  updateObject(state, {
     orders: action.orders,
     loading: false,
   });
-};
 
-const ordersFetchFailed = (state, action) => {
-  return updateObject(state, {
+const ordersFetchFailed = (state, action) =>
+  updateObject(state, {
     loading: false,
   });
-};
 
 export default (state = defaultState, action) => {
   switch (action.type) {

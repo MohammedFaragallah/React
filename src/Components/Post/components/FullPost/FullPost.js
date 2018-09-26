@@ -6,6 +6,7 @@ class FullPost extends Component {
   state = {
     loadedPost: null,
   };
+
   componentDidUpdate() {
     if (this.props.id) {
       if (

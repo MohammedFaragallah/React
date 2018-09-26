@@ -9,46 +9,36 @@ import {
 } from './actionTypes';
 import axios from '../../Components/BurgerBuilder/axios-orders';
 
-const purchaseBurgerSuccess = (id, orderData) => {
-  return {
-    type: PURCHASE_BURGER_SUCCESS,
-    orderId: id,
-    orderData: orderData,
-  };
+const purchaseBurgerSuccess = (id, orderData) => ({
+  type: PURCHASE_BURGER_SUCCESS,
+  orderId: id,
+  orderData,
+});
+
+const purchaseBurgerFail = error => ({
+  type: PURCHASE_BURGER_FAILED,
+  error,
+});
+
+const purchaseBurgerStart = () => ({
+  type: PURCHASE_BURGER_START,
+});
+
+export const purchaseBurger = orderData => dispatch => {
+  dispatch(purchaseBurgerStart());
+  axios
+    .post('/orders.json', orderData)
+    .then(res => {
+      dispatch(purchaseBurgerSuccess(res.data.name, orderData));
+    })
+    .catch(err => {
+      dispatch(purchaseBurgerFail(err));
+    });
 };
 
-const purchaseBurgerFail = error => {
-  return {
-    type: PURCHASE_BURGER_FAILED,
-    error: error,
-  };
-};
-
-const purchaseBurgerStart = () => {
-  return {
-    type: PURCHASE_BURGER_START,
-  };
-};
-
-export const purchaseBurger = orderData => {
-  return dispatch => {
-    dispatch(purchaseBurgerStart());
-    axios
-      .post('/orders.json', orderData)
-      .then(res => {
-        dispatch(purchaseBurgerSuccess(res.data.name, orderData));
-      })
-      .catch(err => {
-        dispatch(purchaseBurgerFail(err));
-      });
-  };
-};
-
-export const purchaseInit = () => {
-  return {
-    type: PURCHASE_INIT,
-  };
-};
+export const purchaseInit = () => ({
+  type: PURCHASE_INIT,
+});
 
 const ordersFetchStart = () => ({
   type: ORDERS_FETCH_START,
@@ -62,23 +52,21 @@ const ordersFetchFailed = error => ({
   error,
 });
 
-export const fetchOrders = () => {
-  return dispatch => {
-    dispatch(ordersFetchStart());
-    axios
-      .get('/orders.json')
-      .then(res => {
-        const fetchedOrders = [];
-        for (let Key in res.data) {
-          fetchedOrders.push({
-            ...res.data[Key],
-            id: Key,
-          });
-        }
-        dispatch(ordersFetchSuccess(fetchedOrders));
-      })
-      .catch(err => {
-        dispatch(ordersFetchFailed(err));
-      });
-  };
+export const fetchOrders = () => dispatch => {
+  dispatch(ordersFetchStart());
+  axios
+    .get('/orders.json')
+    .then(res => {
+      const fetchedOrders = [];
+      for (const Key in res.data) {
+        fetchedOrders.push({
+          ...res.data[Key],
+          id: Key,
+        });
+      }
+      dispatch(ordersFetchSuccess(fetchedOrders));
+    })
+    .catch(err => {
+      dispatch(ordersFetchFailed(err));
+    });
 };

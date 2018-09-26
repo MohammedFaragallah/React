@@ -5,6 +5,7 @@ import {
   SORT_BY_AMOUNT,
   SORT_BY_DATE,
 } from './actionTypes';
+
 const setEndDate = endDate => ({
   type: SET_END_DATE,
   endDate,

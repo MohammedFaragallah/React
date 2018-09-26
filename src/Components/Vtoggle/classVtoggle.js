@@ -6,9 +6,7 @@ class VtoggleClass extends Component {
   };
 
   vtoggle = () => {
-    this.setState(pre => {
-      return { on: !pre.on };
-    });
+    this.setState(pre => ({ on: !pre.on }));
   };
 
   render() {

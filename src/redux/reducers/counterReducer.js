@@ -1,5 +1,6 @@
 import { INCREMENT, DECREMENT, ADD, SUBTRACT } from '../actions/actionTypes';
 import { updateObject } from '../util';
+
 const defaultState = {
   counter: 0,
 };

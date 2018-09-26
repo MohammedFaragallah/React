@@ -15,24 +15,22 @@ import {
   initIngredients,
 } from '../../../../redux/actions/burger';
 import { purchaseInit } from '../../../../redux/actions/order';
+
 class BurgerBuilder extends Component {
   state = {
     purchasable: false,
     purchasing: false,
     loading: false,
   };
+
   componentDidMount() {
     this.props.onInitIngredients();
   }
 
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
-      .map(igKey => {
-        return ingredients[igKey];
-      })
-      .reduce((sum, el) => {
-        return sum + el;
-      }, 0);
+      .map(igKey => ingredients[igKey])
+      .reduce((sum, el) => sum + el, 0);
     return sum > 1;
   }
 
@@ -53,7 +51,7 @@ class BurgerBuilder extends Component {
     const disabledInfo = {
       ...this.props.ings,
     };
-    for (let key in disabledInfo) {
+    for (const key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
     let orderSummary = null;
@@ -103,24 +101,20 @@ class BurgerBuilder extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    ings: state.burger.ingredients,
-    price: state.burger.totalPrice,
-    error: state.burger.error,
-  };
-};
+const mapStateToProps = state => ({
+  ings: state.burger.ingredients,
+  price: state.burger.totalPrice,
+  error: state.burger.error,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onIngredientAdded: ingName => dispatch(addIngredient(ingName)),
-    onIngredientRemoved: ingName => dispatch(removeIngredient(ingName)),
-    onInitIngredients: () => dispatch(initIngredients()),
-    init: () => {
-      dispatch(purchaseInit());
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onIngredientAdded: ingName => dispatch(addIngredient(ingName)),
+  onIngredientRemoved: ingName => dispatch(removeIngredient(ingName)),
+  onInitIngredients: () => dispatch(initIngredients()),
+  init: () => {
+    dispatch(purchaseInit());
+  },
+});
 
 export default connect(
   mapStateToProps,

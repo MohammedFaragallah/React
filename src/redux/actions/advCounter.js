@@ -7,42 +7,30 @@ import {
   DELETE_RESULT,
 } from './actionTypes';
 
-export const increment = () => {
-  return {
-    type: INCREMENT,
-  };
-};
+export const increment = () => ({
+  type: INCREMENT,
+});
 
-export const decrement = () => {
-  return {
-    type: DECREMENT,
-  };
-};
+export const decrement = () => ({
+  type: DECREMENT,
+});
 
-export const add = value => {
-  return {
-    type: ADD,
-    val: value,
-  };
-};
+export const add = value => ({
+  type: ADD,
+  val: value,
+});
 
-export const subtract = value => {
-  return {
-    type: SUBTRACT,
-    val: value,
-  };
-};
+export const subtract = value => ({
+  type: SUBTRACT,
+  val: value,
+});
 
-export const storeResult = result => {
-  return {
-    type: STORE_RESULT,
-    result: result,
-  };
-};
+export const storeResult = result => ({
+  type: STORE_RESULT,
+  result,
+});
 
-export const deleteResult = id => {
-  return {
-    type: DELETE_RESULT,
-    resultElId: id,
-  };
-};
+export const deleteResult = id => ({
+  type: DELETE_RESULT,
+  resultElId: id,
+});

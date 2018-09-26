@@ -13,9 +13,7 @@ export class Persons extends Component {
   };
 
   nameChangedHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(p => {
-      return p.id === id;
-    });
+    const personIndex = this.state.persons.findIndex(p => p.id === id);
 
     const person = {
       ...this.state.persons[personIndex],
@@ -24,7 +22,7 @@ export class Persons extends Component {
     person.name = event.target.value;
     const persons = [...this.state.persons];
     persons[personIndex] = person;
-    this.setState({ persons: persons });
+    this.setState({ persons });
   };
 
   toggleShowPersons = () => {
@@ -36,7 +34,7 @@ export class Persons extends Component {
   removePerson = index => {
     const persons = [...this.state.persons];
     persons.splice(index, 1);
-    this.setState({ persons: persons });
+    this.setState({ persons });
   };
 
   render() {
@@ -46,18 +44,16 @@ export class Persons extends Component {
 
         {this.state.showPersons && (
           <div className="section">
-            {this.state.persons.map((person, index) => {
-              return (
-                <Person
-                  key={person.id}
-                  name={person.name}
-                  age={person.age}
-                  remove={() => this.removePerson(index)}
-                  click={this.switchNameHandler}
-                  changed={e => this.nameChangedHandler(e, person.id)}
-                />
-              );
-            })}
+            {this.state.persons.map((person, index) => (
+              <Person
+                key={person.id}
+                name={person.name}
+                age={person.age}
+                remove={() => this.removePerson(index)}
+                click={this.switchNameHandler}
+                changed={e => this.nameChangedHandler(e, person.id)}
+              />
+            ))}
           </div>
         )}
       </div>

@@ -13,10 +13,12 @@ class Indecision extends Component {
   state = {
     listItems: [],
   };
+
   componentDidUpdate() {
-    let json = JSON.stringify(this.state);
+    const json = JSON.stringify(this.state);
     localStorage.setItem('IndecisionMEAD', json);
   }
+
   onFormSubmit = e => {
     e.preventDefault();
     this.addItem(e);
@@ -27,15 +29,14 @@ class Indecision extends Component {
     const option = e.target.elements.option.value;
     if (!option) {
       return 'Enter valid value to add item';
-    } else if (this.state.listItems.indexOf(option) > -1) {
-      return 'This option already exists';
-    } else {
-      this.setState(pre => {
-        return { listItems: pre.listItems.concat(option) };
-      });
     }
+    if (this.state.listItems.indexOf(option) > -1) {
+      return 'This option already exists';
+    }
+    this.setState(pre => ({ listItems: pre.listItems.concat(option) }));
   };
-  //TODO repair remove one
+
+  // TODO repair remove one
   removeOption = index => {
     const state = [...this.state.listItems];
     state.splice(index, 1);
@@ -43,11 +44,9 @@ class Indecision extends Component {
   };
 
   removeAllOption = () => {
-    this.setState(() => {
-      return {
-        listItems: [],
-      };
-    });
+    this.setState(() => ({
+      listItems: [],
+    }));
   };
 
   render() {

@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ExpenseForm from '../../Components/Expenses/ExpenseForm';
 import { expenses } from '../fixtures/expenses';
+
 test('should render ExpenseForm', () => {
   const wrapper = shallow(<ExpenseForm />);
   expect(wrapper).toMatchSnapshot();

@@ -17,28 +17,22 @@ export const removeIngredient = name => ({
   ingredientName: name,
 });
 
-const setIngredients = ingredients => {
-  return {
-    type: SET_INGREDIENTS,
-    ingredients: ingredients,
-  };
-};
+const setIngredients = ingredients => ({
+  type: SET_INGREDIENTS,
+  ingredients,
+});
 
-const fetchIngredientsFailed = () => {
-  return {
-    type: FETCH_INGREDIENTS_FAILED,
-  };
-};
+const fetchIngredientsFailed = () => ({
+  type: FETCH_INGREDIENTS_FAILED,
+});
 
-export const initIngredients = () => {
-  return dispatch => {
-    axios
-      .get('https://followreact.firebaseio.com/ingredients.json')
-      .then(response => {
-        dispatch(setIngredients(response.data));
-      })
-      .catch(error => {
-        dispatch(fetchIngredientsFailed());
-      });
-  };
+export const initIngredients = () => dispatch => {
+  axios
+    .get('https://followreact.firebaseio.com/ingredients.json')
+    .then(response => {
+      dispatch(setIngredients(response.data));
+    })
+    .catch(err => {
+      dispatch(fetchIngredientsFailed(err));
+    });
 };

@@ -11,15 +11,14 @@ class Blog extends Component {
     posts: [],
     selectedPostId: null,
   };
+
   componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
-      const posts = res.data.slice(0, 5).map(post => {
-        return {
-          ...post,
-          author: 'Mohammed Faragallah',
-        };
-      });
-      this.setState({ posts: posts });
+      const posts = res.data.slice(0, 5).map(post => ({
+        ...post,
+        author: 'Mohammed Faragallah',
+      }));
+      this.setState({ posts });
     });
   }
 
@@ -31,17 +30,15 @@ class Blog extends Component {
     return (
       <div>
         <section className="Posts">
-          {this.state.posts.map(post => {
-            return (
-              <Post
-                key={post.id}
-                title={post.title}
-                author={post.author}
-                body={post.body}
-                clicked={() => this.postSelected(post.id)}
-              />
-            );
-          })}
+          {this.state.posts.map(post => (
+            <Post
+              key={post.id}
+              title={post.title}
+              author={post.author}
+              body={post.body}
+              clicked={() => this.postSelected(post.id)}
+            />
+          ))}
         </section>
         <section>
           <FullPost id={this.state.selectedPostId} />

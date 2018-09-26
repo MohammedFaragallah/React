@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from '../Components/Headers/Header';
 import NotFoundPage from '../Components/Utils/NotFoundPage';
@@ -38,14 +38,15 @@ import Post from '../Components/Post/containers/Blog/Blog';
 import { Persons } from '../Components/Person/Persons';
 import AdvancedCounter from '../Components/AdvancedCounter/containers/Counter/Counter';
 import Layout from '../Components/BurgerBuilder/components/Layout/Layout';
+
 const Routes = () => (
-  <BrowserRouter basename="/React">
+  <BrowserRouter>
     <div>
       <Header />
       <Layout />
 
       <Switch>
-        <Route path="/" component={Landing} exact={true} />
+        <Route path="/" component={Landing} exact />
         <Route path="/aio" component={AioHeader} />
         <Route path="/expenses" component={ExpensesHeader} />
         <Route path="/portfolio" component={PortfolioHeader} />
@@ -65,9 +66,13 @@ const Routes = () => (
       <Route path="/aio/classVtoggle" component={ClassVtoggle} />
       <Route path="/aio/vtoggle" component={Vtoggle} />
 
+      <Route
+        path="/expenses"
+        render={() => <Redirect to="/expenses/dashboard" />}
+      />
       <Route path="/expenses/dashboard" component={ExpenseDashboardPage} />
       <Route path="/expenses/create" component={AddExpensePage} />
-      <Route path="/expenses/edit" component={EditExpensePage} exact={true} />
+      <Route path="/expenses/edit" component={EditExpensePage} exact />
       <Route path="/expenses/edit/:id" component={EditExpensePage} />
       <Route path="/expenses/help" component={HelpPage} />
 
@@ -77,14 +82,14 @@ const Routes = () => (
 
       <Route
         path="/hoc/isAdmin"
-        component={props => <AdminInfo {...props} isAdmin={true} />}
+        component={props => <AdminInfo {...props} isAdmin />}
       />
       <Route
         path="/hoc/isAuth"
-        component={props => {
-          return <AdminAuth {...props} isAuthinticated={false} />;
-        }}
+        component={props => <AdminAuth {...props} isAuthinticated={false} />}
       />
+
+      <Route path="/burger" render={() => <Redirect to="/burger/builder" />} />
       <Route path="/burger/builder" component={Container} />
       <Route path="/burger/checkout" component={Checkout} />
       <Route path="/burger/orders" component={Orders} />

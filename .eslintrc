@@ -1,7 +1,32 @@
 {
-    "extends": ["react-app", "eslint:recommended"],
-    "plugins": ["prettier"],
+    "extends": [
+        "react-app",
+        "prettier",
+        "prettier/react"
+    ],
     "rules": {
-        "prettier/prettier": "error"
-    }
+        "react/destructuring-assignment": ["< enabled >", "never"],
+        "react/prop-types": 0,
+        "no-console": "off",
+        "jsx-a11y/href-no-hash": [0],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "es5",
+                "singleQuote": true
+            }
+        ]
+    },
+    "plugins": [
+        "prettier"
+    ]
 }

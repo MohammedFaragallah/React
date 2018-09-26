@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   SET_TEXT,
   SORT_BY_AMOUNT,
@@ -5,7 +6,6 @@ import {
   SET_START_DATE,
   SET_END_DATE,
 } from '../actions/actionTypes';
-import moment from 'moment';
 
 const defaultState = {
   text: '',

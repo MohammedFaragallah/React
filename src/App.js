@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import Routes from './Routes/AppRouter';
 import './App.css';
@@ -10,15 +10,12 @@ const store = storeConfigurations();
 
 store.dispatch(startSetExpenses()).then(() => {});
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Provider store={store}>
-          <Routes />
-        </Provider>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  </div>
+);
+
 export default App;

@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import axios from 'axios';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import axios from 'axios';
 
+/* eslint no-console: ["error", { allow: ["log"] }] */
 axios.interceptors.request.use(
   request => {
     console.log(request);

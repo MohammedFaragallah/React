@@ -4,6 +4,7 @@ import {
   EDIT_EXPENSE,
   SET_EXPENSES,
 } from '../actions/actionTypes';
+
 const defaultState = [];
 
 export default (state = defaultState, action) => {
@@ -12,17 +13,14 @@ export default (state = defaultState, action) => {
       return [...state, action.expense];
 
     case REMOVE_EXPENSE:
-      return [...state].filter(({ id }) => {
-        return id !== action.expense.id;
-      });
+      return [...state].filter(({ id }) => id !== action.expense.id);
 
     case EDIT_EXPENSE:
       return state.map(expense => {
         if (expense.id === action.id) {
           return { ...expense, ...action.updates };
-        } else {
-          return expense;
         }
+        return expense;
       });
 
     case SET_EXPENSES:

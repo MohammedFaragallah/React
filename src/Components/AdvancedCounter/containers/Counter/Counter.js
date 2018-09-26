@@ -49,23 +49,19 @@ class Counter extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    ctr: state.ctr.counter,
-    storedResults: state.res.results,
-  };
-};
+const mapStateToProps = state => ({
+  ctr: state.ctr.counter,
+  storedResults: state.res.results,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onIncrementCounter: () => dispatch(increment()),
-    onDecrementCounter: () => dispatch(decrement()),
-    onAddCounter: () => dispatch(add(10)),
-    onSubtractCounter: () => dispatch(subtract(15)),
-    onStoreResult: result => dispatch(storeResult(result)),
-    onDeleteResult: id => dispatch(deleteResult(id)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onIncrementCounter: () => dispatch(increment()),
+  onDecrementCounter: () => dispatch(decrement()),
+  onAddCounter: () => dispatch(add(10)),
+  onSubtractCounter: () => dispatch(subtract(15)),
+  onStoreResult: result => dispatch(storeResult(result)),
+  onDeleteResult: id => dispatch(deleteResult(id)),
+});
 
 export default connect(
   mapStateToProps,

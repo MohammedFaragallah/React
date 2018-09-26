@@ -7,6 +7,7 @@ import classes from './ContactData.module.css';
 import axios from '../../../axios-orders';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../withErrorHandler';
+
 class ContactData extends Component {
   state = {
     orderForm: {
@@ -96,7 +97,7 @@ class ContactData extends Component {
   orderHandler = event => {
     event.preventDefault();
     const formData = {};
-    for (let formElementIdentifier in this.state.orderForm) {
+    for (const formElementIdentifier in this.state.orderForm) {
       formData[formElementIdentifier] = this.state.orderForm[
         formElementIdentifier
       ].value;
@@ -143,15 +144,15 @@ class ContactData extends Component {
     updatedOrderForm[inputIdentifier] = updatedFormElement;
 
     let formIsValid = true;
-    for (let inputIdentifier in updatedOrderForm) {
+    for (const inputIdentifier in updatedOrderForm) {
       formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
     }
-    this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
+    this.setState({ orderForm: updatedOrderForm, formIsValid });
   };
 
   render() {
     const formElementsArray = [];
-    for (let key in this.state.orderForm) {
+    for (const key in this.state.orderForm) {
       formElementsArray.push({
         id: key,
         config: this.state.orderForm[key],
@@ -188,21 +189,17 @@ class ContactData extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    ings: state.burger.ingredients,
-    price: state.burger.totalPrice,
-    loading: state.orders.loading,
-  };
-};
+const mapStateToProps = state => ({
+  ings: state.burger.ingredients,
+  price: state.burger.totalPrice,
+  loading: state.orders.loading,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onBurgerOrder: order => {
-      dispatch(purchaseBurger(order));
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onBurgerOrder: order => {
+    dispatch(purchaseBurger(order));
+  },
+});
 
 export default connect(
   mapStateToProps,

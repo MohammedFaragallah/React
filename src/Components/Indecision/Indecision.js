@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-//TODO add random choice selection
+// TODO add random choice selection
 
 class Indecision extends Component {
   state = {
     listItems: [],
   };
+
   componentDidUpdate() {
-    let json = JSON.stringify(this.state);
+    const json = JSON.stringify(this.state);
     localStorage.setItem('Indecision', json);
   }
 

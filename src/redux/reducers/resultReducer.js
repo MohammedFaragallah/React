@@ -7,18 +7,20 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case STORE_RESULT:
+    case STORE_RESULT: {
       return updateObject(state, {
         results: state.results.concat({
           id: new Date(),
           value: action.result,
         }),
       });
-    case DELETE_RESULT:
+    }
+    case DELETE_RESULT: {
       const updatedArray = state.results.filter(
         result => result.id !== action.resultElId
       );
       return updateObject(state, { results: updatedArray });
+    }
     default:
       return state;
   }
