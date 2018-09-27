@@ -65,5 +65,12 @@ exports[`should render header correctly 1`] = `
   >
     Advanced Counter
   </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    to="/emaily"
+  >
+    Emaily
+  </NavLink>
 </header>
 `;
