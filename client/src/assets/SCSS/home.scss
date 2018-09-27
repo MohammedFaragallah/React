@@ -1,0 +1,40 @@
+body {
+  background-color: #000;
+}
+
+a {
+  margin: 5px;
+}
+
+.App {
+  min-height: 80vh;
+  width: 80%;
+  text-align: center;
+  margin: 20px auto;
+  background-color: #eee;
+  padding: 50px;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  border: 3px solid #fff;
+  margin: 5px;
+  padding: 10px;
+  box-shadow: 0px 0px 2px;
+  position: relative;
+}
+
+.thex {
+  position: absolute;
+  left: calc(100% - 12px);
+  top: calc(-16px);
+}
+
+.is-active {
+  color: burlywood;
+}

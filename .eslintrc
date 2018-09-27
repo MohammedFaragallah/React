@@ -5,7 +5,7 @@
         "prettier/react"
     ],
     "rules": {
-        "react/destructuring-assignment": ["< enabled >", "never"],
+        "react/destructuring-assignment": [1, "never"],
         "react/prop-types": 0,
         "no-console": "off",
         "jsx-a11y/href-no-hash": [0],

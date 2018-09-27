@@ -121,3 +121,11 @@ typings/
 
 
 package-lock.json
+node_modules
+.vscode
+dev.js
+.nyc_output
+coverage
+package-lock.json
+.gitignore
+*.rar
