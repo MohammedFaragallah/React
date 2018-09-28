@@ -38,7 +38,8 @@ import Post from '../Components/Post/containers/Blog/Blog';
 import { Persons } from '../Components/Person/Persons';
 import AdvancedCounter from '../Components/AdvancedCounter/containers/Counter/Counter';
 import Layout from '../Components/BurgerBuilder/components/Layout/Layout';
-import Emaily from '../Components/Headers/EmailyHeader';
+import EmailyHeader from '../Components/Headers/EmailyHeader';
+import Emaily from '../Components/Emaily/Emaily';
 const Routes = () => (
   <BrowserRouter>
     <div>
@@ -55,7 +56,7 @@ const Routes = () => (
         <Route path="/burger" component={BurgerHeader} />
         <Route path="/post" component={Post} />
         <Route path="/advancedCounter" component={AdvancedCounter} />
-        <Route path="/emaily" component={Emaily} />
+        <Route path="/emaily" component={EmailyHeader} />
 
         <Route component={NotFoundPage} />
       </Switch>
@@ -94,6 +95,11 @@ const Routes = () => (
       <Route path="/burger/builder" component={Container} />
       <Route path="/burger/checkout" component={Checkout} />
       <Route path="/burger/orders" component={Orders} />
+      <Route
+        path="/emaily"
+        render={() => <Redirect to="/emaily/dashboard" />}
+      />
+      <Route path="/emaily/dashboard" component={Emaily} />
     </div>
   </BrowserRouter>
 );
