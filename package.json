@@ -1,40 +1,42 @@
 {
-    "name": "server",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "engines": {
-        "node": "8.1.1",
-        "npm": "5.0.3"
-    },
-    "scripts": {
-        "start": "node app.js",
-        "server": "nodemon app.js",
-        "client": "npm run frego --prefix client",
-        "test": "npm run test --prefix client",
-        "precommit": "pretty-quick --staged",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
-    },
-    "author": "Mohammed Faragallah",
-    "license": "ISC",
-    "dependencies": {
-        "concurrently": "^4.0.1",
-        "cookie-session": "^2.0.0-beta.3",
-        "ejs": "^2.6.1",
-        "eslint": "^5.6.0",
-        "eslint-config-prettier": "^3.1.0",
-        "eslint-config-react-app": "^2.1.0",
-        "eslint-plugin-import": "^2.14.0",
-        "eslint-plugin-jsx-a11y": "^6.1.1",
-        "eslint-plugin-prettier": "^2.7.0",
-        "eslint-plugin-react": "^7.11.1",
-        "express": "^4.16.3",
-        "husky": "^1.0.1",
-        "mongoose": "^5.2.17",
-        "nodemon": "^1.18.4",
-        "passport": "^0.4.0",
-        "passport-google-oauth20": "^1.0.0",
-        "prettier": "^1.14.3",
-        "pretty-quick": "^1.7.0"
-    }
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "^8.1.1",
+    "npm": "^5.0.3"
+  },
+  "author": "Mohammed Faragallah",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "^2.6.1",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.17",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "eslint": "^5.6.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^2.7.0",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.0.1",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run frego --prefix client",
+    "test": "npm run test --prefix client",
+    "precommit": "pretty-quick --staged",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  }
 }
