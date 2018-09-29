@@ -10,4 +10,8 @@ module.exports = {
   database: {
     link: process.env.DATABASE_URI,
   },
+  stripe: {
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    secretKey: process.env.STRIPE_SECRET_KEY,
+  },
 };
