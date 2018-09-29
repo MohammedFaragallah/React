@@ -1,14 +1,11 @@
 {
     "extends": [
-        "react-app",
-        "prettier",
-        "prettier/react"
+        "react-app", "prettier", "prettier/react"
     ],
     "rules": {
-        "react/destructuring-assignment": ["< enabled >", "never"],
-        "react/prop-types": 0,
-        "no-console": "off",
-        "jsx-a11y/href-no-hash": [0],
+        "react/destructuring-assignment": ["enabled", "never"],
+        "react/prop-types": [0],
+        "no-console": [0],
         "react/jsx-filename-extension": [
             1,
             {
@@ -27,6 +24,6 @@
         ]
     },
     "plugins": [
-        "prettier"
+        "prettier", "react", "import"
     ]
 }
