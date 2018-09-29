@@ -1,6 +1,7 @@
 const express = require('express'),
   cookie = require('cookie-session'),
   passport = require('passport'),
+  bodyParser = require('body-parser'),
   app = express(),
   port = 5000 || process.env.PORT,
   mongoose = require('mongoose'),
@@ -18,6 +19,7 @@ app.set('view engine', 'ejs');
 //+++++++++++++++++++++++++++++++
 // +++++++++ MIDDLEWARES ++++++++
 //+++++++++++++++++++++++++++++++
+app.use(bodyParser.json());
 app.use(
   cookie({
     maxAge: config.cookie.maxAge,
@@ -33,7 +35,15 @@ app.get('/', (req, res) => {
 });
 
 require('./routes/auth')(app);
-require('./routes/404')(app);
+require('./routes/billing')(app);
+// require('./routes/404')(app);
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 app.listen(port, () => {
   console.log(`Server Started on http://localhost:${port}`);

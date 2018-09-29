@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import Payments from '../Emaily/Payments';
 class EmailyHeader extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -14,11 +14,15 @@ class EmailyHeader extends Component {
           </li>
         );
       default:
-        return (
-          <li>
+        return [
+          <li key="payments">
+            <Payments />
+          </li>,
+          <li key="logout">
             <a href="/api/logout">Logout</a>
-          </li>
-        );
+          </li>,
+          <li key="credits">{this.props.auth.credits}</li>,
+        ];
     }
   }
 
@@ -39,7 +43,5 @@ class EmailyHeader extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
 });
-
-const mapDispatchToProps = {};
 
 export default connect(mapStateToProps)(EmailyHeader);

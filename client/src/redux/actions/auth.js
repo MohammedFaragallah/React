@@ -11,3 +11,14 @@ export const fetchUser = () => dispatch => {
       console.log('error: ' + err);
     });
 };
+
+export const handleToken = token => dispatch => {
+  axios
+    .post('/api/stripe', token)
+    .then(res => {
+      dispatch({ type: FETCH_USER, payload: res.data });
+    })
+    .catch(err => {
+      console.log('error: ' + err);
+    });
+};
