@@ -7,7 +7,8 @@ const express = require('express'),
   mongoose = require('mongoose'),
   config = require('./config/config');
 
-require('./models/user');
+require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(
@@ -36,6 +37,7 @@ app.get('/', (req, res) => {
 
 require('./routes/auth')(app);
 require('./routes/billing')(app);
+require('./routes/survey')(app);
 // require('./routes/404')(app);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

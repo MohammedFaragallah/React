@@ -14,4 +14,8 @@ module.exports = {
     publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
     secretKey: process.env.STRIPE_SECRET_KEY,
   },
+  sendGrid: {
+    key: process.env.SEND_GRID_KEY,
+  },
+  redirectDomain: process.env.REDIRECT_DOMAIN,
 };
