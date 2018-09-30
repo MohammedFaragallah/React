@@ -9,6 +9,13 @@
   },
   "author": "Mohammed Faragallah",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohammedFaragallah/react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohammedFaragallah/react/issues"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-session": "^2.0.0-beta.3",
@@ -40,7 +47,7 @@
     "client": "npm run frego --prefix client",
     "test": "npm run test --prefix client",
     "precommit": "pretty-quick --staged",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   }
 }
