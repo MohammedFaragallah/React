@@ -39,7 +39,9 @@ import { Persons } from '../Components/Person/Persons';
 import AdvancedCounter from '../Components/AdvancedCounter/containers/Counter/Counter';
 import Layout from '../Components/BurgerBuilder/components/Layout/Layout';
 import EmailyHeader from '../Components/Headers/EmailyHeader';
-import Emaily from '../Components/Emaily/Emaily';
+import EmailyLanding from '../Components/Emaily/Landing';
+import EmailyDashboard from '../Components/Emaily/Dashboard';
+import SurveyNew from '../Components/Emaily/surveys/SurveyNew';
 const Routes = () => (
   <BrowserRouter>
     <div>
@@ -95,11 +97,10 @@ const Routes = () => (
       <Route path="/burger/builder" component={Container} />
       <Route path="/burger/checkout" component={Checkout} />
       <Route path="/burger/orders" component={Orders} />
-      <Route
-        path="/emaily"
-        render={() => <Redirect to="/emaily/dashboard" />}
-      />
-      <Route path="/emaily/dashboard" component={Emaily} />
+
+      <Route path="/emaily" component={EmailyLanding} exact />
+      <Route path="/emaily/dashboard" component={EmailyDashboard} />
+      <Route path="/emaily/surveys/new" component={SurveyNew} />
     </div>
   </BrowserRouter>
 );

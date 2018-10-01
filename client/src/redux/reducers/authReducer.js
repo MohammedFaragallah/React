@@ -1,5 +1,4 @@
 import { FETCH_USER } from '../actions/actionTypes';
-// import { updateObject } from '../util';
 
 const defaultState = null;
 

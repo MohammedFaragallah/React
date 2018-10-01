@@ -22,3 +22,10 @@ export const handleToken = token => dispatch => {
       console.log('error: ' + err);
     });
 };
+
+export const submitSurvey = (values, history) => async dispatch => {
+  const res = await axios.post('/api/surveys', values);
+
+  history.push('/emaily/surveys');
+  dispatch({ type: FETCH_USER, payload: res.data });
+};

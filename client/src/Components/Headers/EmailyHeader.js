@@ -33,7 +33,6 @@ class EmailyHeader extends Component {
           Dashboard
         </NavLink>
         <a href="/auth/google">Google Here</a>
-        <a href="/api/logout">Log out</a>
         {this.renderContent()}
       </header>
     );

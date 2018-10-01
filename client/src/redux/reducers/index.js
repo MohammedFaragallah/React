@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as reduxForm } from 'redux-form';
 
 import authReducer from './authReducer';
 import burgerReducer from './burgerReducer';
@@ -16,4 +17,5 @@ export default combineReducers({
   ctr: counterReducer,
   res: resultReducer,
   auth: authReducer,
+  form: reduxForm,
 });
