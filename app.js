@@ -1,10 +1,11 @@
 const express = require('express'),
   cookie = require('cookie-session'),
-  passport = require('passport'),
   bodyParser = require('body-parser'),
+  exphbs = require('express-handlebars'),
+  passport = require('passport'),
+  mongoose = require('mongoose'),
   app = express(),
   port = 5000 || process.env.PORT,
-  mongoose = require('mongoose'),
   config = require('./config/config');
 
 require('./models/User');
@@ -16,6 +17,7 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
+app.engine('handlebars', exphbs());
 app.set('view engine', 'ejs');
 //+++++++++++++++++++++++++++++++
 // +++++++++ MIDDLEWARES ++++++++
@@ -33,6 +35,10 @@ app.use(passport.session());
 
 app.get('/', (req, res) => {
   res.render('home', { user: req.user });
+});
+
+app.get('/handlebars', (req, res) => {
+  res.render('index.handlebars', { user: req.user });
 });
 
 require('./routes/auth')(app);
