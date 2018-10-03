@@ -1,15 +1,16 @@
-const express = require('express'),
-  cookie = require('cookie-session'),
-  bodyParser = require('body-parser'),
-  exphbs = require('express-handlebars'),
-  passport = require('passport'),
-  mongoose = require('mongoose'),
-  methodOverride = require('method-override'),
-  flash = require('connect-flash'),
-  session = require('express-session'),
-  app = express(),
-  port = 5000 || process.env.PORT,
-  config = require('./config/config');
+const express = require('express');
+const cookie = require('cookie-session');
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
+const path = require('path');
+const app = express();
+const port = 5000 || process.env.PORT;
+const config = require('./config/config');
 
 require('./models/User');
 require('./models/Survey');
@@ -24,9 +25,9 @@ mongoose
   .then(() => console.log('Connected To MongoDB'))
   .catch(err => console.log(err));
 
-//+++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++
 // +++++++++ MIDDLEWARES ++++++++
-//+++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++
 
 // View engines
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
