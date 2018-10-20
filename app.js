@@ -1,8 +1,9 @@
 const express = require('express');
 const cookie = require('cookie-session');
 const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
+const expressHandlebars = require('express-handlebars');
 const passport = require('passport');
+// const localStrategy = require('passport-local');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
@@ -28,9 +29,10 @@ mongoose
 // +++++++++++++++++++++++++++++++
 // +++++++++ MIDDLEWARES ++++++++
 // +++++++++++++++++++++++++++++++
+app.use(express.static(__dirname + 'public'));
 
 // View engines
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'ejs');
 app.set('view engine', 'handlebars');
 // Bodyparser
@@ -47,6 +49,9 @@ app.use(methodOverride('_method'));
 // Passport
 app.use(passport.initialize());
 app.use(passport.session());
+// passport.use(new localStrategy(user.authenticate()));
+// passport.serializeUser(user.serializeUser());
+// passport.deserializeUser(user.deserializeUser());
 // Session
 app.use(
   session({
@@ -68,7 +73,7 @@ require('./routes/vidJot')(app);
 require('./routes/auth')(app);
 require('./routes/billing')(app);
 require('./routes/survey')(app);
-// require('./routes/404')(app);
+require('./routes/camp')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
