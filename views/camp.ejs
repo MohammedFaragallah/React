@@ -1,0 +1,23 @@
+<% include partials/header%>
+    <header>
+        <div>
+            <h1>Welcome to the YelpCamp!</h1>
+            <p>View our hand-picked camp from all over the world</p>
+            <p>
+                <a href="/camp/camps/new">Add New Camp</a>
+            </p>
+        </div>
+    </header>
+    <div class="camps">
+        <% camp.forEach(function(camp){ %>
+            <a href='/camp/camps/<%= camp._id %>'>
+                <div class="camp">
+                    <img src="<%= camp.image %>">
+                    <h4>
+                        <%= camp.name %>
+                    </h4>
+                </div>
+            </a>
+            <% }); %>
+    </div>
+    <% include partials/footer%>

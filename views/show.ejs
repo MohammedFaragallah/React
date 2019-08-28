@@ -1,0 +1,30 @@
+<% include partials/header%>
+
+    <p>
+        <%= camp._id %>
+    </p>
+    <p>
+        <%= camp.name %>
+    </p>
+    <p>
+        <%= camp.image %>
+    </p>
+    <p>
+        <%= camp.description %>
+    </p>
+
+    <% camp.comments.forEach((comment) => { %>
+        <% console.log(comment) %>
+            <li>
+                <%= comment.text %> -
+                    <%= comment.author %>
+            </li>
+            <% }); %>
+
+                <form action="/camp/camps/<%= camp._id %>" method="POST">
+                    <input type="text" name="comment" placeholder="Comment">
+                    <input type="submit">
+                </form>
+                <a href="/camp/camps">Go Back</a>
+
+                <% include partials/footer%>

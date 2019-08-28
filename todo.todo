@@ -4,3 +4,6 @@
 - [] BACK TO CHAPTER 7 (React 16 – The Complete Guide).
 - [] Try informed lib.
 - [] Find a way to add axios to webpack externals without ejecting create-react-app.
+- [] add authentication - testing.
+- [] add index.js for imports.
+- [] node-with-react-fullstack-web-development - Handling Webhook Data.

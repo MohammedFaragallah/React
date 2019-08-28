@@ -5,9 +5,13 @@ cache:
   directories:
     - node_modules
 install:
-  - npm install -g codecov
+  - yarn global add codecov
+  - yarn --prefix client
 script:
   - echo "Running tests against $(node -v)..."
-  - npm test -- --coverage
+  - yarn test -- --coverage
   - codecov
-  # - npm run deploy
+  # - yarn run deploy
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

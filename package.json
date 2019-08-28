@@ -1,63 +1,78 @@
 {
-    "name": "follow",
-    "homepage": "https://mohammedfaragallah.github.io/React/",
-    "jest": {
-        "collectCoverageFrom": [
-            "src/**/*.{js,jsx}",
-            "!<rootDir>/node_modules/"
-        ],
-        "coverageReporters": [
-            "json",
-            "lcov",
-            "text"
-        ],
-        "snapshotSerializers": [
-            "enzyme-to-json/serializer"
-        ]
-    },
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "firebase": "^5.5.1",
-        "moment": "^2.22.2",
-        "numeral": "^2.0.6",
-        "prop-types": "^15.6.2",
-        "react": "^16.5.2",
-        "react-dates": "^18.1.0",
-        "react-dom": "^16.5.2",
-        "react-modal": "^3.5.1",
-        "react-redux": "^5.0.7",
-        "react-router-dom": "^4.3.1",
-        "react-scripts": "1.1.5",
-        "react-scripts-cssmodules": "^1.1.50",
-        "react-with-direction": "^1.3.0",
-        "redux": "^4.0.0",
-        "redux-thunk": "^2.3.0",
-        "uuid": "^3.3.2"
-    },
-    "devDependencies": {
-        "axios": "^0.18.0",
-        "coveralls": "^3.0.2",
-        "enzyme": "^3.6.0",
-        "enzyme-adapter-react-16": "^1.5.0",
-        "enzyme-to-json": "^3.3.4",
-        "eslint-plugin-prettier": "^2.6.2",
-        "gh-pages": "^2.0.0",
-        "node-sass-chokidar": "^1.3.3",
-        "npm-run-all": "^4.1.3",
-        "prettier": "1.14.3"
-    },
-    "scripts": {
-        "build-css": "node-sass-chokidar src/ -o src/",
-        "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-        "sass:watch": "sass --watch src/App.scss:src/App.css",
-        "sass:build": "sass --update src/App.scss:src/App.css",
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
-        "frego": "npm-run-all -p watch-css start"
-    }
+  "name": "server",
+  "version": "1.0.0",
+  "description": "I'm working to implement projects from famous courses together.",
+  "main": "app.js",
+  "engines": {
+    "node": ">=10.11.0",
+    "yarn": ">=1.17.3"
+  },
+  "author": "Mohammed Faragallah",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohammedFaragallah/react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohammedFaragallah/react/issues"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "handlebars": "^4.0.12",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.3.4",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "sendgrid": "^5.2.3",
+    "stripe": "^6.12.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-register": "^6.26.0",
+    "concurrently": "^4.0.1",
+    "dotenv": "^6.1.0",
+    "eslint": "^5.7.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-jest": "^21.25.1",
+    "eslint-watch": "^4.0.2",
+    "husky": "^1.1.2",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.8.0",
+    "supertest": "^3.3.0"
+  },
+  "scripts": {
+    "webhook": "lt -p 5000 -s mohammedafaragallah",
+    "start": "node app.js",
+    "precommit": "pretty-quick --staged",
+    "heroku-postbuild": "cd client && yarn && yarn --only=dev --no-shrinkwrap && yarn build",
+    "server:env": "nodemon app.js --exec \"node -r dotenv/config -r babel-register\"",
+    "server": "nodemon app.js --exec \"node -r babel-register\""
+  }
 }
