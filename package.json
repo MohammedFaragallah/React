@@ -4,8 +4,8 @@
   "description": "I'm working to implement projects from famous courses together.",
   "main": "app.js",
   "engines": {
-    "node": "^10.11.0",
-    "npm": "^6.4.1"
+    "node": ">=10.11.0",
+    "yarn": ">=1.17.3"
   },
   "author": "Mohammed Faragallah",
   "jest": {
@@ -69,15 +69,10 @@
   },
   "scripts": {
     "webhook": "lt -p 5000 -s mohammedafaragallah",
-    "prestart": "npm run -s build",
-    "lint": "esw -w src test",
     "start": "node app.js",
-    "client": "npm run frego --prefix client",
-    "test": "concurrently \"npm run test --prefix client\" \"jest --watch\" ",
     "precommit": "pretty-quick --staged",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "heroku-postbuild": "cd client && yarn && yarn --only=dev --no-shrinkwrap && yarn build",
     "server:env": "nodemon app.js --exec \"node -r dotenv/config -r babel-register\"",
-    "server": "nodemon app.js --exec \"node -r babel-register\"",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "server": "nodemon app.js --exec \"node -r babel-register\""
   }
 }
